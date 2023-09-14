@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -97,8 +96,6 @@ func (r *Repository) GetBookByID(context *fiber.Ctx) error {
 		})
 		return nil
 	}
-
-	fmt.Println("the ID is", id)
 
 	err := r.DB.Where("id = ?", id).First(bookModel).Error
 	if err != nil {
